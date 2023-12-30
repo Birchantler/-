@@ -11,10 +11,10 @@ const { chromium } = require('playwright');
 
   await page.goto('https://xhs.huitun.com/app/#/note/note_search?searchValue=' + keyword + '&searchType=all');
   await page.waitForTimeout(5000);
-  const count = await page.$$eval('div.e+ZQK2xVJvlsEhq2dm-MSg==', elements => elements.length);
+  const count = await page.$$eval('div.e\\+ZQK2xVJvlsEhq2dm-MSg\\=\\=', elements => elements.length);
 
   if (count > 6) {
-    const spans = await page.$$('div.e+ZQK2xVJvlsEhq2dm-MSg==');
+    const spans = await page.$$('div.e\\+ZQK2xVJvlsEhq2dm-MSg\\=\\=');
   for (let i = 0; i < 6; i++) {
     const span = spans[i];
     const content = await span.innerText();
