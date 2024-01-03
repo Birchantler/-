@@ -7,7 +7,7 @@ const { chromium } = require('playwright');
 
 
   // 在下面输入搜索关键词
-  let keyword = '演唱会';
+  let keyword = '做饭';
 
   await page.goto('https://xhs.huitun.com/app/#/note/note_search?searchValue=' + keyword + '&searchType=all');
   await page.waitForTimeout(5000);
