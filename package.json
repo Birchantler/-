@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@playwright/test": "^1.40.1",
+    "fs": "^0.0.1-security",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
   },

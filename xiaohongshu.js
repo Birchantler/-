@@ -8,36 +8,46 @@ const { chromium } = require('playwright');
 
   // 在下面输入搜索关键词
   let keyword = '唱歌';
+  //输入24小时，近三天，近7天，近30天，近90天，近180天
+  let time = '24小时'
 
   await page.goto('https://xhs.huitun.com/app/#/note/note_search?searchValue=' + keyword + '&searchType=all');
-  await page.waitForTimeout(3000);
+  await page.waitForTimeout(1000);
 
-  await page.click('button.ant-btn.ant-btn-primary');
+  await page.click('li.login');
 
-  await page.waitForSelector('div._7YJHi6NPg6985o\\+c\\+hsdHg\\=\\=');
+  await page.waitForSelector('div.right_btn.account_bg');
 
-  await page.$eval('div._7YJHi6NPg6985o\\+c\\+hsdHg\\=\\= span[role="img"]', (element) => {
+  await page.$eval('div.right_btn.account_bg', (element) => {
     element.click();
   });
 
 
   await page.waitForTimeout(1000);
 
-  await page.waitForSelector('input.ant-input-lg[placeholder="请输入手机号"]');
-  const inputElement = await page.$('input.ant-input-lg[placeholder="请输入手机号"]');
+  await page.waitForSelector('input#phone');
+  const inputElement = await page.$('input#phone');
   await inputElement.fill('18300869473');
 
-  await page.waitForSelector('input.ant-input-lg[type="password"][placeholder="6-15位数字与字母组合"]');
-  const passwordInputElement = await page.$('input.ant-input-lg[type="password"][placeholder="6-15位数字与字母组合"]');
+  await page.waitForSelector('input#password');
+  const passwordInputElement = await page.$('input#password');
   await passwordInputElement.fill('hsr200806');
  
   await page.waitForTimeout(1000);
-  const buttonElements = await page.$$('button.ant-btn.ant-btn-primary.ant-btn-lg');
-  await buttonElements[1].click();
+
+  await page.waitForSelector('input.submit_btn[type="submit"][value="登录"]');
+  await page.click('input.submit_btn[type="submit"][value="登录"]');
 
   await page.waitForTimeout(1000);
 
+  await page.waitForSelector('a.link_a');
+  await page.click('a.link_a');
 
+  await page.waitForTimeout(1000);
+  await page.click('span.ant-modal-close-x');
+ 
+
+  await page.waitForTimeout(1000);
 
   const count = await page.$$eval('div.e\\+ZQK2xVJvlsEhq2dm-MSg\\=\\=', elements => elements.length);
 
