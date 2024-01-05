@@ -43,7 +43,8 @@ const fs = require('fs');
   await page.waitForTimeout(5000);
 
   const count = await page.$$eval('span.antd-pro-pages-material-hot_aweme-index-one_line', elements => elements.length);
-  if(count>3){
+
+  if(count>6){
     const newPagePromise1 = page.waitForEvent('popup');
     const element = await page.$$('span.antd-pro-pages-material-hot_aweme-index-one_line');
     await element[0].click();
