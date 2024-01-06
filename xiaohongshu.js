@@ -83,20 +83,20 @@ const fs = require('fs');
 
 
 
-  const element = await page.$$('div.e\\+ZQK2xVJvlsEhq2dm-MSg\\=\\=');
-  await element[0].click();
 
 
   const count = await page.$$eval('div.I4j2n6lItFu6zj051HhhVw\\=\\=', elements => elements.length);
 
   if (count > 3) {
 
+    const element = await page.$$('div.e\\+ZQK2xVJvlsEhq2dm-MSg\\=\\=');
+    await element[0].click();
     await page.waitForTimeout(5000);
 
     const title1 = await page.$eval('div.I4j2n6lItFu6zj051HhhVw\\=\\=', element => element.textContent);
     const date1 = await page.$$eval('div.DBQLrrmgLUBhgVmB5Y6xlQ\\=\\=', element => element.textContent);
     const duration1 = await page.$$eval('div._1If650bSJqk33UP3VIRjrA\\=\\=', element => element.textContent);
-    const hotWords1 = await page.$$eval('div.XFC7k3xP2MSpG6psPu13Ag\\=\\=', elements => Array.from(elements, element => element.innerText));
+    const hotWords1 = await page.$$eval('div.XFC7k3xP2MSpG6psPu13Ag\\=\\=', elements => Array.from(elements, element => element.innerText)).join(' ');
     const author1 = await page.$eval('div.LjyKhlcpxkszuYaUsm59Xw\\=\\=',element => element.textContent)
     const fans1 = await page.$eval('div.UE8modKA5\\+VXIzU4sSe4VA\\=\\=',element => element.textContent);
 
@@ -116,7 +116,7 @@ const fs = require('fs');
     const title2 = await page.$eval('div.I4j2n6lItFu6zj051HhhVw\\=\\=', element => element.textContent);
     const date2 = await page.$$eval('div.DBQLrrmgLUBhgVmB5Y6xlQ\\=\\=', element => element.textContent);
     const duration2 = await page.$$eval('div._1If650bSJqk33UP3VIRjrA\\=\\=', element => element.textContent);
-    const hotWords2 = await page.$$eval('div.XFC7k3xP2MSpG6psPu13Ag\\=\\=', elements => Array.from(elements, element => element.innerText));
+    const hotWords2 = await page.$$eval('div.XFC7k3xP2MSpG6psPu13Ag\\=\\=', elements => Array.from(elements, element => element.innerText)).join(' ');
     const author2 = await page.$eval('div.LjyKhlcpxkszuYaUsm59Xw\\=\\=',element => element.textContent)
     const fans2 = await page.$eval('div.UE8modKA5\\+VXIzU4sSe4VA\\=\\=',element => element.textContent);
 
@@ -135,7 +135,7 @@ const fs = require('fs');
     const title3 = await page.$eval('div.I4j2n6lItFu6zj051HhhVw\\=\\=', element => element.textContent);
     const date3 = await page.$$eval('div.DBQLrrmgLUBhgVmB5Y6xlQ\\=\\=', element => element.textContent);
     const duration3 = await page.$$eval('div._1If650bSJqk33UP3VIRjrA\\=\\=', element => element.textContent);
-    const hotWords3 = await page.$$eval('div.XFC7k3xP2MSpG6psPu13Ag\\=\\=', elements => Array.from(elements, element => element.innerText));
+    const hotWords3 = await page.$$eval('div.XFC7k3xP2MSpG6psPu13Ag\\=\\=', elements => Array.from(elements, element => element.innerText)).join(' ');
     const author3 = await page.$eval('div.LjyKhlcpxkszuYaUsm59Xw\\=\\=',element => element.textContent)
     const fans3 = await page.$eval('div.UE8modKA5\\+VXIzU4sSe4VA\\=\\=',element => element.textContent);
 

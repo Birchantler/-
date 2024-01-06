@@ -80,7 +80,8 @@ const fs = require('fs');
     const duration1 = await newPage1.$$eval('div.antd-pro-pages-video-video_detail-components-video-title-index-one_line', element => element[2].textContent);
     const renew1 = await newPage1.$$eval('div.antd-pro-pages-video-video_detail-components-video-title-index-one_line', element => element[3].textContent);
     const classification1 = await newPage1.$$eval('div.antd-pro-pages-video-video_detail-components-video-title-index-one_line', element => element[4].textContent);
-    const hotWords1 = await newPage1.$eval('div.antd-pro-pages-video-video_detail-components-video-title-index-spread_hot', element => element.textContent);
+    const hotWordsElement1 = await newPage1.$('.antd-pro-pages-video-video_detail-components-video-title-index-spread_hot');
+    const hotWords1 = (await hotWordsElement1.innerText()).trim().split('\n').map(text => text.trim() + ' ').join('');
     const author1 = await newPage1.$eval('div.antd-pro-pages-video-video_detail-components-video-title-index-bold_16.antd-pro-pages-video-video_detail-components-video-title-index-one_line.antd-pro-pages-video-video_detail-components-video-title-index-link_skip',element => element.textContent)
     const fans1 = await newPage1.$eval('span.antd-pro-pages-video-video_detail-components-video-title-index-bold_12',element => element.textContent);
 
@@ -109,7 +110,8 @@ const fs = require('fs');
     const duration2 = await newPage2.$$eval('div.antd-pro-pages-video-video_detail-components-video-title-index-one_line', element => element[2].textContent);
     const renew2 = await newPage2.$$eval('div.antd-pro-pages-video-video_detail-components-video-title-index-one_line', element => element[3].textContent);
     const classification2 = await newPage2.$$eval('div.antd-pro-pages-video-video_detail-components-video-title-index-one_line', element => element[4].textContent);
-    const hotWords2 = await newPage2.$eval('div.antd-pro-pages-video-video_detail-components-video-title-index-spread_hot', element => element.textContent);
+    const hotWordsElement2 = await newPage2.$('.antd-pro-pages-video-video_detail-components-video-title-index-spread_hot');
+    const hotWords2 = (await hotWordsElement2.innerText()).trim().split('\n').map(text => text.trim() + ' ').join('');
     const author2 = await newPage2.$eval('div.antd-pro-pages-video-video_detail-components-video-title-index-bold_16.antd-pro-pages-video-video_detail-components-video-title-index-one_line.antd-pro-pages-video-video_detail-components-video-title-index-link_skip',element => element.textContent)
     const fans2 = await newPage2.$eval('span.antd-pro-pages-video-video_detail-components-video-title-index-bold_12',element => element.textContent)
 
@@ -135,7 +137,8 @@ const fs = require('fs');
     const duration3 = await newPage3.$$eval('div.antd-pro-pages-video-video_detail-components-video-title-index-one_line', element => element[2].textContent);
     const renew3 = await newPage3.$$eval('div.antd-pro-pages-video-video_detail-components-video-title-index-one_line', element => element[3].textContent);
     const classification3 = await newPage3.$$eval('div.antd-pro-pages-video-video_detail-components-video-title-index-one_line', element => element[4].textContent);
-    const hotWords3 = await newPage3.$eval('div.antd-pro-pages-video-video_detail-components-video-title-index-spread_hot', element => element.textContent);
+    const hotWordsElement3 = await newPage3.$('.antd-pro-pages-video-video_detail-components-video-title-index-spread_hot');
+    const hotWords3 = (await hotWordsElement3.innerText()).trim().split('\n').map(text => text.trim() + ' ').join('');
     const author3 = await newPage3.$eval('div.antd-pro-pages-video-video_detail-components-video-title-index-bold_16.antd-pro-pages-video-video_detail-components-video-title-index-one_line.antd-pro-pages-video-video_detail-components-video-title-index-link_skip',element => element.textContent)
     const fans3 = await newPage3.$eval('span.antd-pro-pages-video-video_detail-components-video-title-index-bold_12',element => element.textContent)
 
