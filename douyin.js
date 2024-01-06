@@ -10,7 +10,13 @@ const fs = require('fs');
   const page = await context.newPage();
   let keyword = process.argv[2];
   let time = process.argv[3];
-  await page.goto('https://dy.huitun.com/app/#/app/video/hot_aweme?keyword=' + keyword + '&hours=' + time);
+  const maxRepeats = 5;
+  const elementSelector = 'div.body-wrap#bodyWrap';
+  let repeatCount = 0;
+
+  while (repeatCount <= maxRepeats) {
+
+    await page.goto('https://dy.huitun.com/app/#/app/video/hot_aweme?keyword=' + keyword + '&hours=' + time);
 
 
   await page.waitForTimeout(3000);
@@ -38,6 +44,23 @@ const fs = require('fs');
 
   await page.waitForSelector('button.ant-btn.antd-pro-components-mod-login-index-submit_btn.ant-btn-primary.ant-btn-lg.ant-btn-block');
   await page.click('button.ant-btn.antd-pro-components-mod-login-index-submit_btn.ant-btn-primary.ant-btn-lg.ant-btn-block');
+
+    const elements = await page.$$(elementSelector);
+
+    if (elements.length > 1) {
+      repeatCount++;
+      console.log(`元素 ${elementSelector} 重复出现次数: ${repeatCount}`);
+
+      await page.waitForTimeout(1000);
+    } else {
+      break;
+    }
+  }
+
+  if (repeatCount > maxRepeats) {
+    throw new Error(`元素 ${elementSelector} 重复出现超过 ${maxRepeats} 次`);
+  }
+  
   await page.waitForSelector('div.antd-pro-layouts-basic-layout-cancel_btn');
   await page.click('div.antd-pro-layouts-basic-layout-cancel_btn')
   await page.waitForTimeout(5000);
@@ -126,35 +149,41 @@ const fs = require('fs');
     await newPage3.close();
  
 
-    const data = {
-      url1:url1,
-      title1:title1,
-      date1:date1,
-      duration1:duration1,
-      renew1:renew1,
-      classification1:classification1,
-      hotWords1:hotWords1,
-      author1:author1,
-      fans1:fans1,
-      url2:url2,
-      title2:title2,
-      date2:date2,
-      duration2:duration2,
-      renew2:renew2,
-      classification2:classification2,
-      hotWords2:hotWords2,
-      author2:author2,
-      fans2:fans2,
-      url3:url3,
-      title3:title3,
-      date3:date3,
-      duration3:duration3,
-      renew3:renew3,
-      classification3:classification3,
-      hotWords3:hotWords3,
-      author3:author3,
-      fans3:fans3
-    }
+    const data = [
+      {
+        url: url1,
+        title: title1,
+        date: date1,
+        duration: duration1,
+        renew: renew1,
+        classification: classification1,
+        hotWords: hotWords1,
+        author: author1,
+        fans: fans1
+      },
+      {
+        url: url2,
+        title: title2,
+        date: date2,
+        duration: duration2,
+        renew: renew2,
+        classification: classification2,
+        hotWords: hotWords2,
+        author: author2,
+        fans: fans2
+      },
+      {
+        url: url3,
+        title: title3,
+        date: date3,
+        duration: duration3,
+        renew: renew3,
+        classification: classification3,
+        hotWords: hotWords3,
+        author: author3,
+        fans: fans3
+      }
+    ];
     const jsonData = JSON.stringify(data, null, 2);
     fs.writeFile('data.json', jsonData, 'utf8', err => {
       if (err) {
