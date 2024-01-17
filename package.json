@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "@playwright/test": "^1.40.1",
+    "fs": "^0.0.1-security",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  },
+  "devDependencies": {
+    "playwright": "^1.41.0"
+  },
+  "name": "--main",
+  "version": "1.0.0",
+  "main": "douyin.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
