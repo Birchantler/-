@@ -23,7 +23,7 @@ const fs = require('fs');
   await page.waitForTimeout(1000);
   await page.waitForSelector('input.ant-input.ant-input-lg[placeholder="请输入手机号"]');
   const inputElement = await page.$('input.ant-input.ant-input-lg[placeholder="请输入手机号"]');
-  await inputElement.fill('18300869473');
+  await inputElement.fill('18617049299');
 
   await page.waitForSelector('input.ant-input.ant-input-lg[type="password"]');
   const passwordInputElement = await page.$('input.ant-input.ant-input-lg[type="password"]');
@@ -87,62 +87,58 @@ const fs = require('fs');
     await element[0].click();
     await page.waitForTimeout(5000);
 
-    const title1 = await page.$eval('div.ant-spin-container header div:first-child div:first-child div:first-child', element => element.textContent);
-    const date1 = await page.$$eval('div.ant-spin-container header div:first-child div:nth-child(4)', element => element.textContent);
-    const duration1 = await page.$$eval('div.ant-spin-container header aside article div span', element => element.textContent);
-    const hotWords1 = await page.$$eval('div.ant-spin-container header div:first-child div:nth-child(2) div div', element => element.textContent);
-    const author1 = await page.$eval('div.ant-spin-container header div:nth-child(3) div:nth-child(1) div:nth-child(1) div:nth-child(1) div:nth-child(1)',element => element.textContent)
-    const fans1 = await page.$eval('div.UE8modKA5\\+VXIzU4sSe4VA\\=\\=',element => element.textContent);
-
+ 
+    const title1 = await page.$eval('div.ant-spin-container>header>div:nth-child(2)>div:first-child>div:first-child', element => element.textContent);
+    const date1 = await page.$$eval('div.ant-spin-container>header>div:nth-child(2)>div:nth-child(4)', element => element.textContent);
+    const duration1 = await page.$$eval('div.ant-spin-container>header>aside>article>div>span', element => element.textContent);
+    const hotWords1 = await page.$$eval('div.ant-spin-container>header>div:nth-child(2)>div:nth-child(2)>div>div:first-child', element => element.textContent);
+    const author1 = await page.$eval('div.ant-spin-container>header>div:nth-child(4)>div:nth-child(1)>div>div>div',element => element.textContent)
+    const fans1 = await page.$eval('div.ant-spin-container>header>div:nth-child(4)>div:nth-child(2)>div:first-child',element => element.textContent);
 
     const newPagePromise1 = page.waitForEvent('popup');
-    await page.click('div.I4j2n6lItFu6zj051HhhVw\\=\\=');
+    await page.click('div.ant-spin-container>header>aside>article>img');
     const newPage1 = await newPagePromise1;
     
     let url2 = newPage1.url();
 
     await newPage1.close();
 
-    await page.click('button.ant-modal-close');
     await page.waitForTimeout(5000);
     await element[1].click();
 
-    const title2 = await page.$eval('div.I4j2n6lItFu6zj051HhhVw\\=\\=', element => element.textContent);
-    const date2 = await page.$$eval('div.DBQLrrmgLUBhgVmB5Y6xlQ\\=\\=', element => element.textContent);
-    const duration2 = await page.$$eval('div._1If650bSJqk33UP3VIRjrA\\=\\=', element => element.textContent);
-    const hotWords2 = await page.$$eval('div.XFC7k3xP2MSpG6psPu13Ag\\=\\=', element => element.textContent);
-    const author2 = await page.$eval('div.LjyKhlcpxkszuYaUsm59Xw\\=\\=',element => element.textContent)
-    const fans2 = await page.$eval('div.UE8modKA5\\+VXIzU4sSe4VA\\=\\=',element => element.textContent);
+    const title2 = await page.$eval('div.ant-spin-container>header>div:nth-child(2)>div:first-child>div:first-child', element => element.textContent);
+    const date2 = await page.$$eval('div.ant-spin-container>header>div:nth-child(2)>div:nth-child(4)', element => element.textContent);
+    const duration2 = await page.$$eval('div.ant-spin-container>header>aside>article>div>span', element => element.textContent);
+    const hotWords2 = await page.$$eval('div.ant-spin-container>header>div:nth-child(2)>div:nth-child(2)>div>div:first-child', element => element.textContent);
+    const author2 = await page.$eval('div.ant-spin-container>header>div:nth-child(4)>div:nth-child(1)>div>div>div',element => element.textContent)
+    const fans2 = await page.$eval('div.ant-spin-container>header>div:nth-child(4)>div:nth-child(2)>div:first-child',element => element.textContent);
 
     const newPagePromise2 = page.waitForEvent('popup');
-    await page.click('div.I4j2n6lItFu6zj051HhhVw\\=\\=');
+    await page.click('div.ant-spin-container>header>aside>article>img');
     const newPage2 = await newPagePromise2;
     
     let url3 = newPage2.url();
 
     await newPage2.close();
 
-    await page.click('button.ant-modal-close');
     await page.waitForTimeout(5000);
     await element[3].click();
 
-    const title3 = await page.$eval('div.I4j2n6lItFu6zj051HhhVw\\=\\=', element => element.textContent);
-    const date3 = await page.$$eval('div.DBQLrrmgLUBhgVmB5Y6xlQ\\=\\=', element => element.textContent);
-    const duration3 = await page.$$eval('div._1If650bSJqk33UP3VIRjrA\\=\\=', element => element.textContent);
-    const hotWords3 = await page.$$eval('div.XFC7k3xP2MSpG6psPu13Ag\\=\\=', elements => Array.from(elements, element => element.innerText)).join(' ');
-    const author3 = await page.$eval('div.LjyKhlcpxkszuYaUsm59Xw\\=\\=',element => element.textContent)
-    const fans3 = await page.$eval('div.UE8modKA5\\+VXIzU4sSe4VA\\=\\=',element => element.textContent);
+    const title3 = await page.$eval('div.ant-spin-container>header>div:nth-child(2)>div:first-child>div:first-child', element => element.textContent);
+    const date3 = await page.$$eval('div.ant-spin-container>header>div:nth-child(2)>div:nth-child(4)', element => element.textContent);
+    const duration3 = await page.$$eval('div.ant-spin-container>header>aside>article>div>span', element => element.textContent);
+    const hotWords3 = await page.$$eval('div.ant-spin-container>header>div:nth-child(2)>div:nth-child(2)>div>div:first-child', elements => Array.from(elements, element => element.innerText)).join(' ');
+    const author3 = await page.$eval('div.ant-spin-container>header>div:nth-child(4)>div:nth-child(1)>div>div>div',element => element.textContent)
+    const fans3 = await page.$eval('div.ant-spin-container>header>div:nth-child(4)>div:nth-child(2)>div:first-child',element => element.textContent);
 
 
     const newPagePromise3 = page.waitForEvent('popup');
-    await page.click('div.I4j2n6lItFu6zj051HhhVw\\=\\=');
+    await page.click('div.ant-spin-container>header>aside>article>img');
     const newPage3 = await newPagePromise3;
     
     let url1 = newPage3.url();
 
     await newPage3.close();
-
-    await page.click('button.ant-modal-close');
 
     await page.waitForTimeout(3000);
     
